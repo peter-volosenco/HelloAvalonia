@@ -27,7 +27,7 @@ public partial class App : Application
             {
                 var live = new LiveViewHost(this, Console.WriteLine);
                 live.StartWatchingSourceFilesForHotReloading();
-                live.Show();       // Do NOT assign desktop.MainWindow here
+                live.Show();
             }
 #else
             desktop.MainWindow = new MainWindow();
@@ -38,13 +38,19 @@ public partial class App : Application
     }
 
 #if DEBUG
-    // ⚠️ Must return a Control, not a Window.
+
     public object CreateView(Window hostWindow)
     {
         // Keep a shared DataContext if you want state persistence across reloads
         hostWindow.DataContext ??= new MainViewModel();
+
+        hostWindow.Width = 1100;
+        hostWindow.Height = 720;
+        hostWindow.Title = "My App";
+
         var view = new RootView { DataContext = hostWindow.DataContext };
         return view;
     }
+
 #endif
 }

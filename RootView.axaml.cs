@@ -8,6 +8,5 @@ public partial class RootView : UserControl
     {
         InitializeComponent();
         DataContext = new MainViewModel();
-
     }
 }
