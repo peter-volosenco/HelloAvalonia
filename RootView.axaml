@@ -1,0 +1,24 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:HelloAvalonia"
+    x:Class="HelloAvalonia.RootView"
+    x:DataType="vm:MainViewModel">
+
+  <StackPanel Margin="20" Spacing="8">
+    <TextBlock Text="{Binding Greeting}" FontSize="18"/>
+    <TextBlock Margin="0 5" >Name 2:</TextBlock>
+    <TextBox  Watermark="Enter your name"/>
+    <TextBlock Margin="0 5" >Password:</TextBlock>
+    <TextBox PasswordChar="*" Watermark="Enter your password"/>
+    <TextBlock Margin="0 15 0 5">Notes:</TextBlock>
+    <TextBox Height="100" AcceptsReturn="True" TextWrapping="Wrap"/>
+    <TextBlock Margin="0 5">Choose an animal:</TextBlock>
+    <AutoCompleteBox x:Name="animals" FilterMode="StartsWith" />
+    <TextBlock Text="{Binding Greeting}" FontSize="18"/>
+    <TextBox Text="{Binding SomeText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    <CheckBox IsChecked="{Binding IsChecked}">Check me</CheckBox>
+    <Button Command="{Binding DoSomething}">Run</Button>
+  </StackPanel>
+  
+</UserControl>
